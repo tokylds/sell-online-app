@@ -15,7 +15,9 @@ class Item extends React.Component {
         </ul>
         <button
           className="edit"
-          onClick={e => this.props.handleEditItem(this.props.item.index)}
+          onClick={e =>
+            this.props.handleEditItem(this.props.item.index, this.props.id)
+          }
         >
           Edit
         </button>

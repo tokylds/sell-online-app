@@ -101,7 +101,7 @@ class SellOnlineAppPage extends React.Component {
   handleAddEditItem(item, mode) {
     if (mode === "add") {
       axios
-        .post("https://sell-online-app-api.herokuapp.com/api/posts", item)
+        .post("https://sell-online-app-api.herokuapp.com/api/post", item)
         .then(response => {
           debugger;
           this.fetchPosts();
@@ -115,7 +115,8 @@ class SellOnlineAppPage extends React.Component {
     } else if (mode === "edit") {
       axios
         .put(
-          "https://sell-online-app-api.herokuapp.com/api/posts/" + item._id,
+          "https://sell-online-app-api.herokuapp.com/api/products/" +
+            this.state.formEditData._id,
           item
         )
         .then(response => {
@@ -144,7 +145,7 @@ class SellOnlineAppPage extends React.Component {
     });
   }
 
-  handleEditItem(index) {
+  handleEditItem(index, id) {
     this.setState({
       itemFormMode: "edit",
       formEditData: this.state.items[index]
